@@ -1,0 +1,15 @@
+```
+자연수 N과 M이 주어졌을 때, 아래 조건을 만족하는 길이가 M인 수열을 모두 구하는 프로그램을 작성하시오.
+- 1부터 N까지 자연수 중에서 중복 없이 M개를 고른 수열
+- 고른 수열은 오름차순이어야 한다.
+```
+
+def backtrack(start, path):
+    if len(path) == M:
+        print(' '.join(map(str, path)))
+        return
+    for i in range(start, N + 1):
+        backtrack(i + 1, path + [i])
+
+N, M = map(int, input().split())
+backtrack(1, [])
